@@ -13,8 +13,10 @@
 /* Start Global Rules */
 * {
     -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
+}
+
+html {
     scroll-behavior: smooth;
 }
 
@@ -87,8 +89,14 @@ header {
 }
 
 header .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 
@@ -112,13 +120,20 @@ header .container nav:hover .burger-icon span:nth-child(2) {
 
 header .container nav .burger-icon {
     width: 50px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
     justify-content: flex-end;
     gap: 6px;
     padding: 10px;
     border-radius: var(--border-radius);
     cursor: pointer;
+    -webkit-transition: background-color var(--main-duration);
+    -o-transition: background-color var(--main-duration);
     transition: background-color var(--main-duration);
     background-color: #ede7f6;
 }
@@ -131,6 +146,8 @@ header .container nav .burger-icon span {
 
 header .container nav .burger-icon span:nth-child(2) {
     width: 70%;
+    -webkit-transition: width var(--main-duration);
+    -o-transition: width var(--main-duration);
     transition: width var(--main-duration);
 }
 
@@ -146,7 +163,6 @@ header .container nav .links {
     min-width: 200px;
     border-radius: var(--border-radius);
     z-index: 1;
-    overflow: hidden;
 }
 
 header .container nav .links.show {
@@ -173,8 +189,20 @@ header .container nav .links li a {
     padding: 15px;
     text-decoration: none;
     color: #333;
+    -webkit-transition: padding-left var(--main-duration),
+        background-color var(--main-duration);
+    -o-transition: padding-left var(--main-duration),
+        background-color var(--main-duration);
     transition: padding-left var(--main-duration),
         background-color var(--main-duration);
+}
+
+header .container nav .links li:first-child a {
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+header .container nav .links li:last-child a {
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
 }
 
 header .container nav .links li:not(:last-child) a {
@@ -194,6 +222,8 @@ header .container nav .links li:not(:last-child) a {
     position: absolute;
     top: 50%;
     left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     text-align: center;
     width: 320px;
@@ -221,6 +251,7 @@ header .container nav .links li:not(:last-child) a {
 }
 
 .features .container {
+    display: -ms-grid;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
@@ -255,18 +286,24 @@ header .container nav .links li:not(:last-child) a {
 
 .services .container .services-content {
     margin-top: 100px;
+    display: -ms-grid;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 30px;
 }
 
 .services .container .services-content .col .srv {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     margin-bottom: 40px;
 }
 
 @media (max-width: 767px) {
     .services .container .services-content .col .srv {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
         text-align: center;
     }
@@ -274,10 +311,13 @@ header .container nav .links li:not(:last-child) a {
 
 .services .container .services-content .col .srv i {
     color: var(--main-color);
+    -ms-flex-preferred-size: 60px;
     flex-basis: 60px;
 }
 
 .services .container .services-content .col .srv .text {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
     flex: 1;
 }
 
@@ -327,6 +367,7 @@ header .container nav .links li:not(:last-child) a {
 
 .portfolio .portfolio-content {
     margin-top: 80px;
+    display: -ms-grid;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, auto));
     gap: 30px;
@@ -334,10 +375,16 @@ header .container nav .links li:not(:last-child) a {
 
 .portfolio .portfolio-content .card {
     background-color: white;
+    -webkit-transition: -webkit-box-shadow var(--main-duration);
+    transition: -webkit-box-shadow var(--main-duration);
+    -o-transition: box-shadow var(--main-duration);
     transition: box-shadow var(--main-duration);
+    transition: box-shadow var(--main-duration),
+        -webkit-box-shadow var(--main-duration);
 }
 
 .portfolio .portfolio-content .card:hover {
+    -webkit-box-shadow: 0 2px 25px rgb(29 67 84 / 10%);
     box-shadow: 0 2px 25px rgb(29 67 84 / 10%);
 }
 
@@ -368,15 +415,25 @@ header .container nav .links li:not(:last-child) a {
 
 .about .about-content {
     margin-top: 70px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     gap: 20px;
 }
 
 @media (max-width: 991px) {
     .about .about-content {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
         flex-direction: column;
         text-align: center;
     }
@@ -423,6 +480,7 @@ header .container nav .links li:not(:last-child) a {
 }
 
 .about .about-content .text {
+    -ms-flex-preferred-size: calc(100% - 500px);
     flex-basis: calc(100% - 500px);
 }
 
@@ -446,6 +504,74 @@ header .container nav .links li:not(:last-child) a {
 }
 /* End About Section */
 
+/* Start Contact Section */
+.contact {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    background-color: var(--section-background);
+}
+
+.contact .contact-content {
+    padding: 50px 0 0;
+    text-align: center;
+}
+
+.contact .contact-content .label {
+    font-size: 35px;
+    color: var(--secondary-color);
+    font-weight: 800;
+    letter-spacing: -2px;
+    margin: 0 0 20px;
+}
+
+.contact .contact-content .link {
+    display: block;
+    text-decoration: none;
+    color: var(--main-color);
+    font-size: 35px;
+    font-weight: 800;
+}
+
+.contact .contact-content .social {
+    font-size: 18px;
+    color: #222;
+    margin: 20px 0 30px;
+}
+
+.contact .contact-content .social i {
+    color: var(--secondary-color);
+}
+
+@media (max-width: 767px) {
+    .contact .contact-content .label,
+    .contact .contact-content .link {
+        font-size: 25px;
+    }
+
+    .contact .contact-content .social {
+        font-size: initial;
+    }
+}
+/* End Contact Section */
+
+/* Start Footer */
+footer {
+    background-color: var(--secondary-color);
+    padding: 30px 0;
+}
+
+footer .info {
+    color: white;
+    text-align: center;
+    font-size: 18px;
+}
+
+footer .info span {
+    color: var(--main-color);
+    font-weight: bold;
+}
+/* End Footer */
+
 /* Start Scroll To Top Button */
 .up {
     position: fixed;
@@ -459,6 +585,10 @@ header .container nav .links li:not(:last-child) a {
     line-height: 45px;
     color: #222;
     cursor: pointer;
+    -webkit-transition: background-color var(--main-duration),
+        right var(--main-duration);
+    -o-transition: background-color var(--main-duration),
+        right var(--main-duration);
     transition: background-color var(--main-duration),
         right var(--main-duration);
 }
